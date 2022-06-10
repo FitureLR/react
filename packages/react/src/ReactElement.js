@@ -202,6 +202,8 @@ const ReactElement = function(type, key, ref, self, source, owner, props) {
 };
 
 /**
+ * RFC:
+ * 移除字符串 ref, key 通过其他props传递 (单独传递) 而不放到 props 中 ...
  * https://github.com/reactjs/rfcs/pull/107
  * @param {*} type
  * @param {object} props

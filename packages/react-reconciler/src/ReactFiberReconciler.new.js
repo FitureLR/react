@@ -244,6 +244,7 @@ function findHostInstanceWithWarning(
   return findHostInstance(component);
 }
 
+// 我需要注意下后面几个参数的作用
 export function createContainer(
   containerInfo: Container,
   tag: RootTag,

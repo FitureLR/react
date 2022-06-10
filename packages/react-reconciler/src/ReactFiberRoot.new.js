@@ -143,6 +143,8 @@ export function createFiberRoot(
   // host config, but because they are passed in at runtime, we have to thread
   // them through the root constructor. Perhaps we should put them all into a
   // single type, like a DynamicHostConfig that is defined by the renderer.
+  // 我们有几个这样的参数在概念上是host config的一部分，但是因为它们是在运行时传入的，所以我们必须通过根构造函数将它们线程化。
+  // 或许我们应该将它们全部归为一个类型，例如由渲染器定义的 DynamicHostConfig。
   identifierPrefix: string,
   onRecoverableError: null | ((error: mixed) => void),
   transitionCallbacks: null | TransitionTracingCallbacks,

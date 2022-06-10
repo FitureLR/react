@@ -145,10 +145,12 @@ export const disableLegacyContext = false;
 export const enableUseRefAccessWarning = false;
 
 // Enables time slicing for updates that aren't wrapped in startTransition.
+// 为未包含在 startTransition 中的更新使用时间切片
 export const enableSyncDefaultUpdates = true;
 
 // Adds an opt-in to time slicing for updates that aren't wrapped in
 // startTransition. Only relevant when enableSyncDefaultUpdates is disabled.
+// 为未包含在 startTransition 中的更新提供选项，只在 enableSyncDefaultUpdates 禁用的时候
 export const allowConcurrentByDefault = false;
 
 // Updates that occur in the render phase are not officially supported. But when

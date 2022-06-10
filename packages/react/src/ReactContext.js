@@ -14,6 +14,7 @@ import type {ReactContext} from 'shared/ReactTypes';
 export function createContext<T>(defaultValue: T): ReactContext<T> {
   // TODO: Second argument used to be an optional `calculateChangedBits`
   // function. Warn to reserve for future use?
+  // 第二个参数过去是可选的“calculateChangedBits”函数。是否警告保留以备将来使用？
 
   const context: ReactContext<T> = {
     $$typeof: REACT_CONTEXT_TYPE,
@@ -22,16 +23,21 @@ export function createContext<T>(defaultValue: T): ReactContext<T> {
     // there to be two concurrent renderers at most: React Native (primary) and
     // Fabric (secondary); React DOM (primary) and React ART (secondary).
     // Secondary renderers store their context values on separate fields.
+    // 如一个工作区支持多个并发 renderers，我们把一些renderers分类为主要和次要的,
+    // 大多数时候我们只存在两个并发 renderers: React Native (Primary) and Fabric (secondary) ...
+    // 次要的 renderers 存储他们的 context 值在独立的 fields.
     _currentValue: defaultValue,
     _currentValue2: defaultValue,
     // Used to track how many concurrent renderers this context currently
     // supports within in a single renderer. Such as parallel server rendering.
+    // 用于跟踪此上下文当前在单个渲染器中支持多少并发渲染器。例如并行服务器渲染。
     _threadCount: 0,
     // These are circular
     Provider: (null: any),
     Consumer: (null: any),
 
     // Add these to use same hidden class in VM as ServerContext
+    // 添加这些以在VM中使用与ServerContext相同的隐藏类
     _defaultValue: (null: any),
     _globalName: (null: any),
   };
